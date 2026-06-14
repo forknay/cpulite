@@ -1,4 +1,4 @@
-module register_file(
+module REGISTERFILE(
     input wire clk,
     input wire rst_n,
     input wire wen,
