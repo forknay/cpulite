@@ -5,6 +5,8 @@ module PC #(
     input wire clk,
     input wire pc_en,
     input wire rst_n,
+    input wire [15:0] target,
+    input wire jump,
     output reg [15:0] pc,
     output wire [15:0] ins
 );
@@ -19,6 +21,7 @@ module PC #(
 
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) pc <= 0;
+        else if (jump) pc <= target;
         else if (pc_en) pc <= pc + 1;
     end
 

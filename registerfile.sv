@@ -1,7 +1,7 @@
 module REGISTERFILE(
     input wire clk,
     input wire rst_n,
-    input wire wen,
+    input wire we,
     input wire [2:0] waddr,
     input wire [15:0] wdata,
     input wire [2:0] raddr1,
@@ -20,7 +20,7 @@ module REGISTERFILE(
             for (i = 0; i < 8; i = i + 1) begin
                 reg_file[i] <= 16'd0;
             end
-        end else if (wen) begin
+        end else if (we) begin
             if (waddr != 0) begin
                 reg_file[waddr] <= wdata;
             end
